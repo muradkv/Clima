@@ -54,14 +54,46 @@
 		FA82DAFF223D9119007FE60E /* Clima */ = {
 			isa = PBXGroup;
 			children = (
+				FA82DB12223D937B007FE60E /* Model */,
+				FA82DB13223D938C007FE60E /* View */,
+				FA82DB14223D9391007FE60E /* Controller */,
+				FA82DB15223D93EE007FE60E /* Supporting Files */,
+			);
+			path = Clima;
+			sourceTree = "<group>";
+		};
+		FA82DB12223D937B007FE60E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA82DB13223D938C007FE60E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA82DB04223D9119007FE60E /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA82DB14223D9391007FE60E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				FA82DB00223D9119007FE60E /* AppDelegate.swift */,
 				FA82DB02223D9119007FE60E /* ViewController.swift */,
-				FA82DB04223D9119007FE60E /* Main.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA82DB15223D93EE007FE60E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				FA82DB07223D911A007FE60E /* Assets.xcassets */,
 				FA82DB09223D911A007FE60E /* LaunchScreen.storyboard */,
 				FA82DB0C223D911A007FE60E /* Info.plist */,
 			);
-			path = Clima;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q6D3DZE2WM;
-				INFOPLIST_FILE = Clima/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Clima/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q6D3DZE2WM;
-				INFOPLIST_FILE = Clima/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Clima/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
