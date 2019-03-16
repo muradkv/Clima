@@ -23,8 +23,43 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSy-Ul-TTP" userLabel="Container View">
                                 <rect key="frame" x="0.0" y="192" width="375" height="455"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21°" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Le-fn-2uB" userLabel="Temperature Label">
+                                        <rect key="frame" x="191" y="0.0" width="168" height="127"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="168" id="4ki-4A-me9"/>
+                                            <constraint firstAttribute="height" constant="127" id="ZDK-mb-9ya"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="100"/>
+                                        <color key="textColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysm-xF-yfH" userLabel="Weather Condition Image View">
+                                        <rect key="frame" x="16" y="129" width="343" height="230"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbQ-on-lZX" userLabel="City Label">
+                                        <rect key="frame" x="16" y="361" width="269" height="94"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="94" id="rad-IJ-T3V"/>
+                                            <constraint firstAttribute="width" constant="269" id="yKw-MR-G4p"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
+                                    <constraint firstItem="ysm-xF-yfH" firstAttribute="top" secondItem="3Le-fn-2uB" secondAttribute="bottom" constant="2" id="AUE-Bp-O7i"/>
+                                    <constraint firstItem="3Le-fn-2uB" firstAttribute="top" secondItem="fSy-Ul-TTP" secondAttribute="top" id="Ird-uw-p3m"/>
+                                    <constraint firstItem="CbQ-on-lZX" firstAttribute="top" secondItem="ysm-xF-yfH" secondAttribute="bottom" constant="2" id="K5x-3R-muR"/>
+                                    <constraint firstItem="CbQ-on-lZX" firstAttribute="leading" secondItem="fSy-Ul-TTP" secondAttribute="leading" constant="16" id="LkR-6c-DiO"/>
+                                    <constraint firstAttribute="trailing" secondItem="ysm-xF-yfH" secondAttribute="trailing" constant="16" id="Z3s-6P-Tay"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="CbQ-on-lZX" secondAttribute="trailing" constant="90" id="bTz-Lv-cZg"/>
+                                    <constraint firstItem="ysm-xF-yfH" firstAttribute="leading" secondItem="fSy-Ul-TTP" secondAttribute="leading" constant="16" id="e6W-8F-qJU"/>
                                     <constraint firstAttribute="height" constant="455" id="kqK-ON-kdV"/>
+                                    <constraint firstAttribute="bottom" secondItem="CbQ-on-lZX" secondAttribute="bottom" id="lU8-0y-YfI"/>
+                                    <constraint firstItem="3Le-fn-2uB" firstAttribute="leading" relation="lessThanOrEqual" secondItem="fSy-Ul-TTP" secondAttribute="leading" constant="191" id="ri5-dU-3hn"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Le-fn-2uB" secondAttribute="trailing" constant="16" id="z7M-ag-zaC"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -43,6 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="99.400299850074973"/>
         </scene>
     </scenes>
     <resources>
