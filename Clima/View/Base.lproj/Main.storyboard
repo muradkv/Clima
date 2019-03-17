@@ -88,6 +88,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="CbQ-on-lZX" id="Z32-gB-gbQ"/>
+                        <outlet property="temperatureLabel" destination="3Le-fn-2uB" id="bFh-dH-08I"/>
+                        <outlet property="weatherIcon" destination="ysm-xF-yfH" id="iTx-j4-H2Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
