@@ -27,8 +27,27 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
 
+    //MARK: - Location Manager Delegate Methods
+    
+    //Activated when location manager will receive location data
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[locations.count - 1]
+        if location.horizontalAccuracy > 0 {
+            locationManager.stopUpdatingLocation()
+            
+            print("Longtitude = \(location.coordinate.longitude). Latitude = \(location.coordinate.latitude)")
+            
+        }
+    }
+    
+    //Activated if location manager don't receive location data
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        cityLabel.text = "Location unavailable"
+    }
 
 }
 
