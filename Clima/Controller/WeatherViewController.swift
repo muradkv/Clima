@@ -11,6 +11,10 @@ import CoreLocation
 
 class WeatherViewController: UIViewController, CLLocationManagerDelegate {
 
+    //Constants
+    let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
+    let APP_ID = "f79c491d3dd1092c0eb1dc71cfc66f8e"
+    
     //TODO: Declare instance variables here
     let locationManager = CLLocationManager()
     
