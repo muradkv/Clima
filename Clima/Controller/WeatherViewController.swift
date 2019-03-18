@@ -44,6 +44,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
             
             print("Longtitude = \(location.coordinate.longitude). Latitude = \(location.coordinate.latitude)")
             
+            let longtitude = String(location.coordinate.longitude)
+            let latitude = String(location.coordinate.latitude)
+            
+            var params: [String:String] = ["lat": latitude, "lon": longtitude, "appid": APP_ID]
         }
     }
     
