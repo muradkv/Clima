@@ -127,6 +127,9 @@
                                         <state key="normal" title="Get Weather">
                                             <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="getWeatherPressed:" destination="viN-s5-tRc" eventType="touchUpInside" id="tx8-D5-6yH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QB-N0-b5P">
                                         <rect key="frame" x="16" y="28" width="32" height="32"/>
@@ -135,6 +138,9 @@
                                             <constraint firstAttribute="width" constant="32" id="K1N-et-xGt"/>
                                         </constraints>
                                         <state key="normal" image="left"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="viN-s5-tRc" eventType="touchUpInside" id="eHb-lj-sy3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -163,6 +169,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AwY-iF-bjf"/>
                     </view>
+                    <connections>
+                        <outlet property="changeCityTextField" destination="Mkr-sa-2EZ" id="OaQ-eW-fef"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYo-iE-0gL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
