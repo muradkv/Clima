@@ -115,7 +115,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     //MARK: - Change City Delegate methods
     
     func userEnteredANewCityName(city: String) {
-        print(city)
+        let params = ["q": city, "appid": APP_ID]
+        
+        getWeatherData(url: WEATHER_URL, parameters: params)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
