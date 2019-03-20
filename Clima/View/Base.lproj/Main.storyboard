@@ -70,7 +70,7 @@
                                 </constraints>
                                 <state key="normal" image="switch"/>
                                 <connections>
-                                    <segue destination="viN-s5-tRc" kind="presentation" id="yE5-RV-Rw7"/>
+                                    <segue destination="viN-s5-tRc" kind="presentation" identifier="changeCityName" id="yE5-RV-Rw7"/>
                                 </connections>
                             </button>
                         </subviews>

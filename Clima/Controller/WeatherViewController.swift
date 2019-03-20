@@ -11,7 +11,7 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-class WeatherViewController: UIViewController, CLLocationManagerDelegate {
+class WeatherViewController: UIViewController, CLLocationManagerDelegate, ChangeCityDelegate {
 
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
@@ -111,6 +111,19 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         print(error)
         cityLabel.text = "Location unavailable"
     }
+    
+    //MARK: - Change City Delegate methods
+    
+    func userEnteredANewCityName(city: String) {
+        print(city)
+    }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "changeCityName" {
+            let destinationVC = segue.destination as! ChangeCityViewController
+            destinationVC.delegate = self
+            
+        }
+    }
 }
 
