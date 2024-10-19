@@ -21,8 +21,6 @@
 		FA97C4062CC1EB77006A1E2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA97C4072CC1EB77006A1E2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FA97C4082CC1EB77006A1E2D /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		FA97C4122CC1EE5D006A1E2D /* dark_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dark_background.pdf; sourceTree = "<group>"; };
-		FA97C4132CC1EE5D006A1E2D /* light_background.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = light_background.pdf; sourceTree = "<group>"; };
 		FA97C4142CC33726006A1E2D /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,8 +67,6 @@
 				FA97C40F2CC1EB96006A1E2D /* View */,
 				FA97C4032CC1EB77006A1E2D /* Controller */,
 				FA97C4062CC1EB77006A1E2D /* Info.plist */,
-				FA97C4122CC1EE5D006A1E2D /* dark_background.pdf */,
-				FA97C4132CC1EE5D006A1E2D /* light_background.pdf */,
 			);
 			path = Clima;
 			sourceTree = "<group>";
