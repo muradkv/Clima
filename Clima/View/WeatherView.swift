@@ -41,7 +41,7 @@ class WeatherView: UIView {
     private let locationButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .black
+        button.tintColor = .weather
         button.setBackgroundImage(UIImage(systemName: "location.circle.fill"), for: .normal)
         return button
     }()
@@ -57,20 +57,21 @@ class WeatherView: UIView {
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .systemFill
         textField.autocorrectionType = .no
+        textField.textColor = .weather
         return textField
     }()
     
     private let searchButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .black
+        button.tintColor = .weather
         button.setBackgroundImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         return button
     }()
     
     private let conditionImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.tintColor = .black
+        imageView.tintColor = .weather
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "sun.max")
         return imageView
@@ -92,6 +93,7 @@ class WeatherView: UIView {
         label.text = "21"
         label.font = UIFont.systemFont(ofSize: 80, weight: .black)
         label.textAlignment = .right
+        label.textColor = .weather
         return label
     }()
     
@@ -101,6 +103,7 @@ class WeatherView: UIView {
         label.text = "°C"
         label.font = UIFont.systemFont(ofSize: 100, weight: .light)
         label.textAlignment = .left
+        label.textColor = .weather
         return label
     }()
     
@@ -109,6 +112,7 @@ class WeatherView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "London"
         label.font = UIFont.systemFont(ofSize: 30, weight: .regular)
+        label.textColor = .weather
         return label
     }()
     
