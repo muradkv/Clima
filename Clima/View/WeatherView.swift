@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol WeatherViewDelegate: AnyObject {
+    func didSearchButtonTapped(_ textField: UITextField)
+}
+
 class WeatherView: UIView {
     //MARK: - Properties
     
@@ -58,6 +62,8 @@ class WeatherView: UIView {
         textField.backgroundColor = .systemFill
         textField.autocorrectionType = .no
         textField.textColor = .weather
+        textField.returnKeyType = .go
+        textField.autocapitalizationType = .words
         return textField
     }()
     
@@ -122,10 +128,13 @@ class WeatherView: UIView {
         return view
     }()
     
+    weak var delegate: WeatherViewDelegate?
+    
     //MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        setupButton()
     }
     
     required init?(coder: NSCoder) {
@@ -170,5 +179,23 @@ class WeatherView: UIView {
             conditionImageView.widthAnchor.constraint(equalToConstant: 120),
             conditionImageView.heightAnchor.constraint(equalToConstant: 120),
         ])
+    }
+    
+    //MARK: - Methods
+    
+    private func setupButton() {
+        searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func searchButtonTapped() {
+        delegate?.didSearchButtonTapped(searchTextField)
+    }
+    
+    func updateUI() {
+        cityLabel.text = searchTextField.text
+    }
+    
+    func setTextFieldDelegate(_ delegate: UITextFieldDelegate) {
+        searchTextField.delegate = delegate
     }
 }
