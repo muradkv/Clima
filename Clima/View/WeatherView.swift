@@ -80,6 +80,7 @@ class WeatherView: UIView {
         imageView.tintColor = .weather
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "sun.max")
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -191,8 +192,10 @@ class WeatherView: UIView {
         delegate?.didSearchButtonTapped(searchTextField)
     }
     
-    func updateUI() {
-        cityLabel.text = searchTextField.text
+    func updateUI(with weather: WeatherModel) {
+        temperatureNumberLabel.text = weather.temperatureString
+        conditionImageView.image = UIImage(systemName: weather.conditionName)
+        cityLabel.text = weather.cityName
     }
     
     func setTextFieldDelegate(_ delegate: UITextFieldDelegate) {

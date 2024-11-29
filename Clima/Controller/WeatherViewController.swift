@@ -7,11 +7,12 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
-    
+class WeatherViewController: UIViewController, WeatherManagerDelegate {
+
     //MARK: - Properties
     
     private let weatherView = WeatherView()
+    private var weatherManager = WeatherManager()
 
     //MARK: - Life cycle
     
@@ -23,6 +24,7 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         weatherView.delegate = self
         weatherView.setTextFieldDelegate(self)
+        weatherManager.delegate = self
     }
 
 }
@@ -35,7 +37,6 @@ extension WeatherViewController: WeatherViewDelegate, UITextFieldDelegate {
             return
         }
         
-        weatherView.updateUI()
         textField.endEditing(true)
     }
     
@@ -52,13 +53,25 @@ extension WeatherViewController: WeatherViewDelegate, UITextFieldDelegate {
             return false 
         }
         
-        weatherView.updateUI()
         textField.endEditing(true)
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        weatherManager.featchWeather(cityName: text.lowercased())
+        
         textField.text = ""
+    }
+    
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
+        DispatchQueue.main.async {
+            self.weatherView.updateUI(with: weather)
+        }
+    }
+    
+    func didFailWithError(error: any Error) {
+        print(error)
     }
 }
 
