@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, WeatherManagerDelegate {
+class WeatherViewController: UIViewController, WeatherViewDelegate {
 
     //MARK: - Properties
     
@@ -22,16 +22,21 @@ class WeatherViewController: UIViewController, WeatherManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDelegates()
+    }
+    
+    //MARK: - Methods
+    
+    private func setDelegates() {
         weatherView.delegate = self
         weatherView.setTextFieldDelegate(self)
         weatherManager.delegate = self
     }
-
 }
 
-//MARK: - Delegation 
+//MARK: - UITextFieldDelegate
 
-extension WeatherViewController: WeatherViewDelegate, UITextFieldDelegate {
+extension WeatherViewController: UITextFieldDelegate {
     func didSearchButtonTapped(_ textField: UITextField) {
         guard let text = textField.text, !text.isEmpty else {
             return
@@ -63,7 +68,11 @@ extension WeatherViewController: WeatherViewDelegate, UITextFieldDelegate {
         
         textField.text = ""
     }
-    
+}
+
+//MARK: - WeatherManagerDelegate
+
+extension WeatherViewController: WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         DispatchQueue.main.async {
             self.weatherView.updateUI(with: weather)
