@@ -9,6 +9,7 @@ import UIKit
 
 protocol WeatherViewDelegate: AnyObject {
     func didSearchButtonTapped(_ textField: UITextField)
+    func didLocationButtonTapped(_ sender: UIButton)
 }
 
 class WeatherView: UIView {
@@ -186,10 +187,15 @@ class WeatherView: UIView {
     
     private func setupButton() {
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        locationButton.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
     }
     
     @objc private func searchButtonTapped() {
         delegate?.didSearchButtonTapped(searchTextField)
+    }
+    
+    @objc private func locationButtonTapped() {
+        delegate?.didLocationButtonTapped(locationButton)
     }
     
     func updateUI(with weather: WeatherModel) {

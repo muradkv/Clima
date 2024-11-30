@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class WeatherViewController: UIViewController, WeatherViewDelegate {
+class WeatherViewController: UIViewController {
 
     //MARK: - Properties
     
@@ -39,9 +39,9 @@ class WeatherViewController: UIViewController, WeatherViewDelegate {
     }
 }
 
-//MARK: - UITextFieldDelegate
+//MARK: - WeatherViewDelegate
 
-extension WeatherViewController: UITextFieldDelegate {
+extension WeatherViewController: WeatherViewDelegate {
     func didSearchButtonTapped(_ textField: UITextField) {
         guard let text = textField.text, !text.isEmpty else {
             return
@@ -50,6 +50,14 @@ extension WeatherViewController: UITextFieldDelegate {
         textField.endEditing(true)
     }
     
+    func didLocationButtonTapped(_ sender: UIButton) {
+        locationManager.requestLocation()
+    }
+}
+
+//MARK: - UITextFieldDelegate
+
+extension WeatherViewController: UITextFieldDelegate {
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if textField.text != "" {
             return true
@@ -94,6 +102,7 @@ extension WeatherViewController: WeatherManagerDelegate {
 extension WeatherViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
+            locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
             weatherManager.featchWeather(latitude: lat, longitude: lon)
