@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UIViewController, WeatherViewDelegate {
 
@@ -13,6 +14,7 @@ class WeatherViewController: UIViewController, WeatherViewDelegate {
     
     private let weatherView = WeatherView()
     private var weatherManager = WeatherManager()
+    private let locationManager = CLLocationManager()
 
     //MARK: - Life cycle
     
@@ -23,6 +25,8 @@ class WeatherViewController: UIViewController, WeatherViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
     
     //MARK: - Methods
@@ -31,6 +35,7 @@ class WeatherViewController: UIViewController, WeatherViewDelegate {
         weatherView.delegate = self
         weatherView.setTextFieldDelegate(self)
         weatherManager.delegate = self
+        locationManager.delegate = self
     }
 }
 
@@ -84,3 +89,24 @@ extension WeatherViewController: WeatherManagerDelegate {
     }
 }
 
+//MARK: - CLLocationManagerDelegate
+
+extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            weatherManager.featchWeather(latitude: lat, longitude: lon)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+         print("error:: \(error.localizedDescription)")
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+}
